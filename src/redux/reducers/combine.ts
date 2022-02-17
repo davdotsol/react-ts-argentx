@@ -4,6 +4,7 @@ import { ethBalanceReducer, guardianCountReducer } from './index';
 const reducers = combineReducers({
   ethBalance: ethBalanceReducer,
   guardianCount: guardianCountReducer,
+  erc20TokenBalances: erc20TokenBalancesReducer,
 });
 
 export default reducers;

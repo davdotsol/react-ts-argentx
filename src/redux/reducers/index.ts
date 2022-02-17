@@ -12,6 +12,12 @@ interface GuardianCountState {
   errorGuardianCount: string | null;
 }
 
+interface ERC20TokenBalanceState {
+  ERC20TokenBalances: {} | null;
+  loadingERC20TokenBalance: boolean;
+  errorERC20TokenBalance: string | null;
+}
+
 const initialEthBalanceState = {
   ethBalance: '',
   loadingEthBalance: false,
@@ -22,6 +28,12 @@ const initialGuardianCountState = {
   guardianCount: null,
   loadingGuardianCount: false,
   errorGuardianCount: null,
+};
+
+const initialERC20TokenBalanceState = {
+  ERC20TokenBalances: null,
+  loadingERC20TokenBalance: false,
+  errorERC20TokenBalance: null,
 };
 
 export const ethBalanceReducer = (
@@ -74,6 +86,34 @@ export const guardianCountReducer = (
         loadingGuardianCount: false,
         guardianCount: 0,
         errorGuardianCount: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const erc20TokenBalancesReducer = (
+  state: ERC20TokenBalanceState = initialERC20TokenBalanceState,
+  action: Action
+): ERC20TokenBalanceState => {
+  switch (action.type) {
+    case ActionType.GET_ERC20TOKEN_BALANCE_PENDING:
+      return {
+        loadingERC20TokenBalance: true,
+        ERC20TokenBalances: {},
+        errorERC20TokenBalance: null,
+      };
+    case ActionType.GET_ERC20TOKEN_BALANCE_SUCCESS:
+      return {
+        loadingERC20TokenBalance: false,
+        ERC20TokenBalances: action.payload,
+        errorERC20TokenBalance: null,
+      };
+    case ActionType.GET_ERC20TOKEN_BALANCE_FAIL:
+      return {
+        loadingERC20TokenBalance: false,
+        ERC20TokenBalances: {},
+        errorERC20TokenBalance: action.payload,
       };
     default:
       return state;
