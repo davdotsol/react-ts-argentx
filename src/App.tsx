@@ -23,8 +23,11 @@ function App() {
   );
   const { guardianCount, loadingGuardianCount, errorGuardianCount } =
     useTypedSelector((state) => state.guardianCount);
-  const { guardianCount, loadingGuardianCount, errorGuardianCount } =
-    useTypedSelector((state) => state.erc20TokenBalances);
+  const {
+    ERC20TokenBalances,
+    loadingERC20TokenBalance,
+    errorERC20TokenBalance,
+  } = useTypedSelector((state) => state.erc20TokenBalances);
 
   useEffect(() => {
     const web3 = new Web3(

@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
-import { ethBalanceReducer, guardianCountReducer } from './index';
+import {
+  ethBalanceReducer,
+  guardianCountReducer,
+  erc20TokenBalancesReducer,
+} from './index';
 
 const reducers = combineReducers({
   ethBalance: ethBalanceReducer,

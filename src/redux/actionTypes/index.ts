@@ -43,7 +43,7 @@ interface actionGuardianCountFail {
 
 interface actionERC20TokenBalanceSuccess {
   type: ActionType.GET_ERC20TOKEN_BALANCE_SUCCESS;
-  payload: number;
+  payload: {};
 }
 
 interface actionERC20TokenBalancePending {
